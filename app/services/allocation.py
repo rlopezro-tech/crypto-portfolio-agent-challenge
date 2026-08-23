@@ -22,7 +22,7 @@ class AllocationService:
         intent: ParsedPortfolioIntent,
         quotes: dict[str, MarketQuote],
     ) -> RecommendationResponse:
-        selected_coins = self._select_coins(intent)
+        selected_coins = self.select_coins(intent)
         allocations = self._calculate_allocations(intent.budget_usd, selected_coins, quotes)
 
         return RecommendationResponse(
@@ -33,7 +33,10 @@ class AllocationService:
             disclaimer=DISCLAIMER,
         )
 
-    def _select_coins(self, intent: ParsedPortfolioIntent) -> list[CoinMetadata]:
+    def get_required_tickers(self, intent: ParsedPortfolioIntent) -> list[str]:
+        return [coin.ticker for coin in self.select_coins(intent)]
+
+    def select_coins(self, intent: ParsedPortfolioIntent) -> list[CoinMetadata]:
         excluded_tickers = {ticker.upper() for ticker in intent.excluded_tickers}
         excluded_categories = {category.lower() for category in intent.excluded_categories}
         preferred_tickers = [ticker.upper() for ticker in intent.preferred_tickers]

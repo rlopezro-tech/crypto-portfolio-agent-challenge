@@ -113,7 +113,7 @@ class CoinMarketCapMarketDataClient(MarketDataClient):
 
         data = response.json()
         status = data.get("status", {})
-        if status.get("error_code") not in (None, 0):
+        if str(status.get("error_code", "0")) != "0":
             raise MarketDataError(
                 code="coinmarketcap_api_error",
                 message=status.get("error_message") or "CoinMarketCap returned an API error.",
@@ -150,7 +150,7 @@ class CoinMarketCapMarketDataClient(MarketDataClient):
         for record in records:
             cmc_id = int(record["id"])
             ticker = id_to_ticker.get(cmc_id)
-            usd_quote = record.get("quote", {}).get("USD", {})
+            usd_quote = _extract_usd_quote(record.get("quote"))
             price = usd_quote.get("price")
             if ticker is None or price is None:
                 continue
@@ -194,3 +194,18 @@ def _optional_decimal(value: object) -> Decimal | None:
     if value is None:
         return None
     return Decimal(str(value))
+
+
+def _extract_usd_quote(raw_quote: object) -> dict:
+    if isinstance(raw_quote, dict):
+        return raw_quote.get("USD", {})
+    if isinstance(raw_quote, list):
+        return next(
+            (
+                quote
+                for quote in raw_quote
+                if isinstance(quote, dict) and quote.get("symbol") == "USD"
+            ),
+            {},
+        )
+    return {}

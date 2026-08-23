@@ -33,19 +33,20 @@ async def test_coinmarketcap_client_parses_v3_quotes_response() -> None:
         return httpx.Response(
             200,
             json={
-                "status": {"error_code": 0, "error_message": ""},
+                "status": {"error_code": "0", "error_message": ""},
                 "data": [
                     {
                         "id": 1,
                         "name": "Bitcoin",
                         "symbol": "BTC",
-                        "quote": {
-                            "USD": {
+                        "quote": [
+                            {
+                                "symbol": "USD",
                                 "price": 80123.45,
                                 "market_cap": 1580000000000,
                                 "last_updated": "2026-08-23T22:00:00.000Z",
                             }
-                        },
+                        ],
                     },
                     {
                         "id": 1027,

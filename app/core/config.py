@@ -8,7 +8,7 @@ class Settings(BaseSettings):
 
     ai_provider: str = "openai_compatible"
     ai_base_url: str = "https://api.groq.com/openai/v1"
-    ai_model: str = "llama-3.1-8b-instant"
+    ai_model: str = "openai/gpt-oss-20b"
     ai_api_key: str = ""
 
     market_data_provider: str = "demo"

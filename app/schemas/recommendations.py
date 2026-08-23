@@ -32,6 +32,7 @@ class PortfolioAllocation(BaseModel):
 
 
 class RecommendationResponse(BaseModel):
+    execution_id: str | None = None
     request: ParsedPortfolioIntent
     summary: str
     allocations: list[PortfolioAllocation] = Field(min_length=3, max_length=5)

@@ -32,8 +32,9 @@ class ExecutionLogRecorder:
         status: str,
         response: dict[str, Any] | None = None,
         error: dict[str, Any] | None = None,
+        execution_id: str | None = None,
     ) -> str:
-        execution_id = str(uuid4())
+        execution_id = execution_id or str(uuid4())
         if not self.enabled:
             return execution_id
 
