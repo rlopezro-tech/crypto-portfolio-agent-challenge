@@ -14,6 +14,9 @@ class Settings(BaseSettings):
     market_data_provider: str = "demo"
     market_data_api_key: str = ""
 
+    execution_log_enabled: bool = True
+    execution_log_dir: str = "execution_logs"
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
 

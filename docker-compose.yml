@@ -5,6 +5,8 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    volumes:
+      - ./execution_logs:/app/execution_logs
     environment:
       APP_ENV: ${APP_ENV:-local}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
@@ -14,3 +16,5 @@ services:
       AI_API_KEY: ${AI_API_KEY:-}
       MARKET_DATA_PROVIDER: ${MARKET_DATA_PROVIDER:-demo}
       MARKET_DATA_API_KEY: ${MARKET_DATA_API_KEY:-}
+      EXECUTION_LOG_ENABLED: ${EXECUTION_LOG_ENABLED:-true}
+      EXECUTION_LOG_DIR: ${EXECUTION_LOG_DIR:-execution_logs}
