@@ -1,12 +1,12 @@
 # Crypto Portfolio Agent Challenge
 
-Source PDF: `/Users/rafaellopez/Documents/AI Engineer/ai-workspace/live-coding/challenge-chatbot-fastapi-mongo.pdf`
+Source: `/Users/rafaellopez/Documents/AI Engineer/ai-workspace/live-coding/instructions.md`
 
 ## Objective
 
 Build an **AI agent** that helps users construct a basic cryptocurrency portfolio tailored to their **budget**, **risk level**, and **preferences**.
 
-The agent should intelligently suggest how to allocate the budget across a curated selection of cryptocurrencies using live market data.
+The agent should intelligently suggest how to allocate the budget across a curated selection of cryptocurrencies using live data.
 
 ## Environment Setup
 
@@ -137,7 +137,7 @@ Here's a suggested portfolio based on your preferences:
 
 4. **Serving the Agent**
    - Build an API endpoint to serve the agent.
-   - Suggested framework:
+   - Suggested frameworks:
      - FastAPI
      - Flask
      - Starlette
@@ -173,24 +173,3 @@ Use prompt engineering techniques to improve agent behavior.
 Reference: [Prompt Engineering Guide](https://www.promptingguide.ai/)
 
 Consider using a consistent style or template for different types of prompts.
-
-## Implementation Expectations For This Repo
-
-Since this project is part of AI Engineer training, the implementation should also include:
-
-- Clean project structure.
-- FastAPI API layer.
-- Pydantic schemas.
-- Agent/service separation.
-- External crypto market client.
-- MongoDB integration.
-- `.env.example`.
-- Dockerfile.
-- Docker Compose.
-- Unit and integration tests.
-- Executable scripts or Makefile.
-- API documentation.
-- Architecture diagram.
-- Deployment notes.
-- Security considerations.
-- Financial disclaimer.
