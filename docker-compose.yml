@@ -16,5 +16,6 @@ services:
       AI_API_KEY: ${AI_API_KEY:-}
       MARKET_DATA_PROVIDER: ${MARKET_DATA_PROVIDER:-demo}
       MARKET_DATA_API_KEY: ${MARKET_DATA_API_KEY:-}
+      MARKET_DATA_BASE_URL: ${MARKET_DATA_BASE_URL:-https://pro-api.coinmarketcap.com}
       EXECUTION_LOG_ENABLED: ${EXECUTION_LOG_ENABLED:-true}
       EXECUTION_LOG_DIR: ${EXECUTION_LOG_DIR:-execution_logs}

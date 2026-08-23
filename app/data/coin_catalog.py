@@ -6,6 +6,7 @@ from app.schemas.recommendations import RiskLevel
 
 
 class CoinMetadata(BaseModel):
+    cmc_id: int
     ticker: str
     name: str
     categories: set[str]
@@ -16,6 +17,7 @@ class CoinMetadata(BaseModel):
 
 COIN_CATALOG: dict[str, CoinMetadata] = {
     "BTC": CoinMetadata(
+        cmc_id=1,
         ticker="BTC",
         name="Bitcoin",
         categories={"store_of_value", "large_cap"},
@@ -24,6 +26,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Bitcoin is the first and most widely recognized cryptocurrency.",
     ),
     "ETH": CoinMetadata(
+        cmc_id=1027,
         ticker="ETH",
         name="Ethereum",
         categories={"smart_contracts", "large_cap"},
@@ -32,6 +35,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Ethereum is a smart contract platform used by decentralized applications.",
     ),
     "PAXG": CoinMetadata(
+        cmc_id=4705,
         ticker="PAXG",
         name="Paxos Gold",
         categories={"commodity_backed", "large_cap"},
@@ -40,6 +44,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Paxos Gold is a token backed by physical gold reserves.",
     ),
     "SOL": CoinMetadata(
+        cmc_id=5426,
         ticker="SOL",
         name="Solana",
         categories={"smart_contracts", "layer_1"},
@@ -48,6 +53,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Solana is a high-throughput blockchain platform for decentralized apps.",
     ),
     "LINK": CoinMetadata(
+        cmc_id=1975,
         ticker="LINK",
         name="Chainlink",
         categories={"oracle", "infrastructure"},
@@ -56,6 +62,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Chainlink provides decentralized oracle infrastructure for smart contracts.",
     ),
     "MATIC": CoinMetadata(
+        cmc_id=3890,
         ticker="MATIC",
         name="Polygon",
         categories={"scaling", "infrastructure"},
@@ -64,6 +71,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Polygon is an Ethereum scaling ecosystem focused on lower-cost transactions.",
     ),
     "AVAX": CoinMetadata(
+        cmc_id=5805,
         ticker="AVAX",
         name="Avalanche",
         categories={"smart_contracts", "layer_1"},
@@ -72,6 +80,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Avalanche is a layer 1 blockchain focused on fast finality and custom subnets.",
     ),
     "ARB": CoinMetadata(
+        cmc_id=11841,
         ticker="ARB",
         name="Arbitrum",
         categories={"scaling", "layer_2"},
@@ -80,6 +89,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Arbitrum is an Ethereum layer 2 network designed to reduce transaction costs.",
     ),
     "DOGE": CoinMetadata(
+        cmc_id=74,
         ticker="DOGE",
         name="Dogecoin",
         categories={"meme"},
@@ -88,6 +98,7 @@ COIN_CATALOG: dict[str, CoinMetadata] = {
         description="Dogecoin is a meme-origin cryptocurrency with high volatility.",
     ),
     "PEPE": CoinMetadata(
+        cmc_id=24478,
         ticker="PEPE",
         name="Pepe",
         categories={"meme"},

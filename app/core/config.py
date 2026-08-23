@@ -13,6 +13,7 @@ class Settings(BaseSettings):
 
     market_data_provider: str = "demo"
     market_data_api_key: str = ""
+    market_data_base_url: str = "https://pro-api.coinmarketcap.com"
 
     execution_log_enabled: bool = True
     execution_log_dir: str = "execution_logs"
